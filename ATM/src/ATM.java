@@ -9,11 +9,15 @@ public class ATM {
 
 		Scanner scanner = new Scanner(System.in);
 		
-
+		try {
+			
 		System.out.println("Welcome to the ATM! \n" + "Press 1 to check balance \n" + "Press 2 to depoist \n"
 				+ "Press 3 to withdraw");
 		int input1 = scanner.nextInt();
 
+		
+		
+		
 		if (input1 == 1) {
 			System.out.println("Your balance is: " + account1.getBalance());
 
@@ -41,8 +45,14 @@ public class ATM {
 
 		if (input1 != 1 && input1 != 2 && input1 != 3) {
 			System.out.println("You need to enter a number between 1 and 3 in order to use the ATM");
+	
+			}
+		}
+		catch(InputMismatchException inputMismatch) {
+			System.out.println("You need to enter a number, try again!");
 		}
 	}
+	
 }
 
 
