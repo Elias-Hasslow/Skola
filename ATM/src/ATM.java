@@ -8,9 +8,7 @@ public class ATM {
 
 		Scanner scanner = new Scanner(System.in);
 
-		System.out.println("Welcome to the ATM! \n"
-				+ "Press 1 to check balance \n" 
-				+ "Press 2 to depoist \n"
+		System.out.println("Welcome to the ATM! \n" + "Press 1 to check balance \n" + "Press 2 to depoist \n"
 				+ "Press 3 to withdraw");
 		int input1 = scanner.nextInt();
 
@@ -30,9 +28,13 @@ public class ATM {
 		if (input1 == 3) {
 			System.out.println("How much would you like to withdraw?");
 			double withdrawAmount = scanner.nextDouble();
-			account1.setBalance(account1.getBalance() - withdrawAmount);
-			System.out.println(
-					"You have withdrawn: " + withdrawAmount + "\n" + "Your new balance is: " + account1.getBalance());
+			if (withdrawAmount >= account1.getBalance()) {
+				System.out.println("You can´t withdraw more than you have in your account");
+			} else if (withdrawAmount <= account1.getBalance()) {
+				account1.setBalance(account1.getBalance() - withdrawAmount);
+				System.out.println("You have withdrawn: " + withdrawAmount + "\n" + "Your new balance is: "
+						+ account1.getBalance());
+			}
 		}
 
 		if (input1 != 1 && input1 != 2 && input1 != 3) {
