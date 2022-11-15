@@ -22,11 +22,8 @@ public class PaymentSlip {
 	}
 
 	public double calculateNetSalary() {
-		return hours * hourlyRate * netTax;
+		return calculateSalary() * netTax;
 	}
-
-	
-	
 	
 	
 	public String getName() {
