@@ -1,7 +1,7 @@
 public class Passenger {
 
 	private String name;
-	private Integer age;
+	private int age;
 
 	public Passenger() {
 
@@ -24,7 +24,7 @@ public class Passenger {
 		return age;
 	}
 
-	public void setAge(Integer age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
