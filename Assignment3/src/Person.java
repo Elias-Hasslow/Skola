@@ -4,19 +4,16 @@ public class Person {
 	private String identificationNumber;
 	private String name;
 	private int age;
-	private ArrayList<BankAccount> personAccounts = new ArrayList<BankAccount>();
+	private ArrayList<BankAccount> accounts = new ArrayList<BankAccount>();
 
 	
 	public void addAccount(BankAccount account) {
-//		if (Person person person.getAge() < 18) {
-//			System.out.println("You need to be 18 or older to create an account.");
-//		}
-		this.personAccounts.add(account);
+		this.accounts.add(account);
 	}
 	
 	
 	public BankAccount findAccount(String accountNumber) {
-		for(BankAccount account : personAccounts) {
+		for(BankAccount account : accounts) {
 			if(account.getAccountNumber().equals(accountNumber)) {
 				return account;
 			}
@@ -26,7 +23,7 @@ public class Person {
 	
 	public double calculateTotalBalance() {
 		double total = 0;
-		for(BankAccount tmp : personAccounts) {
+		for(BankAccount tmp : accounts) {
 			total += tmp.getBalance();
 		}
 		return total;
@@ -35,6 +32,18 @@ public class Person {
 	
 	
 		
+
+
+	public ArrayList<BankAccount> getAccounts() {
+		return accounts;
+	}
+
+
+	public void setAccounts(ArrayList<BankAccount> accounts) {
+		this.accounts = accounts;
+	}
+
+
 	public String getIdentificationNumber() {
 		return identificationNumber;
 	}

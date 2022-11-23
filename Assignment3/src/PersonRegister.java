@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
 public class PersonRegister {
-	private ArrayList<BankAccount> totalAccounts = new ArrayList<BankAccount>();
 	private ArrayList<Person> persons = new ArrayList<Person>();
 	
 	public void addPerson(Person person) {
@@ -18,20 +17,14 @@ public class PersonRegister {
 	}
 	
 	public BankAccount findAccount(String accountNumber) {
-		for (BankAccount account : totalAccounts) {
-			if(account.getAccountNumber().equals(accountNumber)) {
-				return account;
+		for (Person person : persons) {
+			for(BankAccount bankAccount : person.getAccounts()) {
+				if(bankAccount.getAccountNumber().equals(accountNumber)) {
+					return bankAccount;
+					}
+				}
 			}
-		}
 		return null;
-	}
-	
-	public ArrayList<BankAccount> getTotalAccounts() {
-		return totalAccounts;
-	}
-
-	public void setTotalAccounts(ArrayList<BankAccount> totalAccounts) {
-		this.totalAccounts = totalAccounts;
 	}
 
 	public ArrayList<Person> getPersons() {
@@ -44,8 +37,11 @@ public class PersonRegister {
 
 	public double calculateTotalBalance() {
 		double total = 0;
-			for	(BankAccount tmp : totalAccounts) {
-				 total += tmp.getBalance();
+			for	(Person person : persons) {
+				for (BankAccount bankAccount : person.getAccounts()) {
+					 total += bankAccount.getBalance();
+				}
+
 			}
 			return total;
 	}
