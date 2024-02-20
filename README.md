@@ -1,2 +1,2 @@
-# Skola
-test
+# School
+All exercises from OOP
